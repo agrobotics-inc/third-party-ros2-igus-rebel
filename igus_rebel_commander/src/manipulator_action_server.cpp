@@ -294,7 +294,7 @@ bool ManipulatorActionServer::robotPlanAndMove(std::vector<double> joint_space_g
 	RCLCPP_INFO(LOGGER, "Planning to the searching position = %s", moveit::core::error_code_to_string(response).c_str());
 
 	visual_tools->setBaseFrame(root_base_frame);
-	visual_tools->publishTrajectoryLine(search_plan.trajectory, goal_state.getLinkModel(end_effector_link), joint_model_group);
+	visual_tools->publishTrajectoryLine(search_plan.trajectory_, goal_state.getLinkModel(end_effector_link), joint_model_group);
 	visual_tools->trigger();
 
 	if (bool(response)) {

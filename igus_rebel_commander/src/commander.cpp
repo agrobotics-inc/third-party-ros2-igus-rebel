@@ -210,7 +210,7 @@ int main(int argc, char** argv) {
     moveit::planning_interface::MoveGroupInterface::Plan my_plan;
     moveit::core::MoveItErrorCode response = move_group.plan(my_plan);
 
-    moveit_msgs::msg::RobotTrajectory trajectory = my_plan.trajectory;
+    moveit_msgs::msg::RobotTrajectory trajectory = my_plan.trajectory_;
 
     // show output of planned movement
     RCLCPP_INFO(LOGGER, "Visualizing plan 1 (pose goal): result = %s", moveit::core::error_code_to_string(response).c_str());
@@ -220,7 +220,7 @@ int main(int argc, char** argv) {
     rclcpp::Publisher<moveit_msgs::msg::DisplayTrajectory>::SharedPtr display_publisher =
         commander_node->create_publisher<moveit_msgs::msg::DisplayTrajectory>("/display_planned_path", 1);
     moveit_msgs::msg::DisplayTrajectory display_trajectory;
-    display_trajectory.trajectory_start = my_plan.start_state;
+    display_trajectory.trajectory_start = my_plan.start_state_;
     display_trajectory.trajectory.push_back(trajectory);
     display_publisher->publish(display_trajectory);
 
@@ -277,7 +277,7 @@ int main(int argc, char** argv) {
     RCLCPP_INFO(LOGGER, "Visualizing plan 2 (joint goal): result = %s", moveit::core::error_code_to_string(response).c_str());
 
 
-    visual_tools.publishTrajectoryPath(my_plan_2.trajectory, my_plan_2.start_state);
+    visual_tools.publishTrajectoryPath(my_plan_2.trajectory_, my_plan_2.start_state);
 	visual_tools.trigger();
 
     visual_tools.prompt("Press 'next' to move the robot");
@@ -371,7 +371,7 @@ int main(int argc, char** argv) {
     RCLCPP_INFO(LOGGER, "Visualizing plan 3 (pose goal move around cuboid) %s", success ? "" : "FAILED");
 
     visual_tools.publishText(text_pose, "Obstacle_Goal", rvt::WHITE, rvt::XLARGE);
-    visual_tools.publishTrajectoryPath(my_plan_3.trajectory, *robot_state);
+    visual_tools.publishTrajectoryPath(my_plan_3.trajectory_, *robot_state);
     visual_tools.trigger();
 
     // Wait for user input

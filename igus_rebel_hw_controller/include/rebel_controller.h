@@ -36,7 +36,7 @@ namespace igus_rebel_hw_controller {
 class RebelController : public hardware_interface::SystemInterface {
 
 private:
-	const std::string ip_address = "192.168.1.102";
+	const std::string ip_address = "192.168.3.11";
 	const int port = 3920;
 
 	rclcpp::Logger logger_ = rclcpp::get_logger("hw_controller::rebel_controller");

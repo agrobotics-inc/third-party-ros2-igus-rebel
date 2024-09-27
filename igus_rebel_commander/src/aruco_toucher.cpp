@@ -322,8 +322,8 @@ bool ArucoToucher::robotPlanAndMove(geometry_msgs::msg::PoseStamped::SharedPtr t
 	// visualizing the trajectory
 	joint_model_group = move_group->getCurrentState()->getJointModelGroup(PLANNING_GROUP);
 	auto link_eef = move_group->getCurrentState()->getLinkModel(end_effector_link);
-	visual_tools->setBaseFrame(plan_motion.trajectory.multi_dof_joint_trajectory.header.frame_id);
-	visual_tools->publishTrajectoryLine(plan_motion.trajectory, link_eef, joint_model_group);
+	visual_tools->setBaseFrame(plan_motion.trajectory_.multi_dof_joint_trajectory.header.frame_id);
+	visual_tools->publishTrajectoryLine(plan_motion.trajectory_, link_eef, joint_model_group);
 	visual_tools->trigger();
 
 	if (bool(response)) { // if the plan was successful
@@ -398,7 +398,7 @@ bool ArucoToucher::robotPlanAndMove(std::vector<double> joint_space_goal) {
 	RCLCPP_INFO(LOGGER, "Planning to the searching position = %s", moveit::core::error_code_to_string(response).c_str());
 
 	visual_tools->setBaseFrame(root_base_frame);
-	visual_tools->publishTrajectoryLine(search_plan.trajectory, goal_state.getLinkModel(end_effector_link), joint_model_group);
+	visual_tools->publishTrajectoryLine(search_plan.trajectory_, goal_state.getLinkModel(end_effector_link), joint_model_group);
 	visual_tools->trigger();
 
 	if (bool(response)) {

@@ -206,7 +206,7 @@ void ArucoFollower::trackGoalPose() {
 		RCLCPP_INFO(LOGGER, "Visualizing plan 1 (pose goal): result = %s", moveit::core::error_code_to_string(response).c_str());
 
 		// retrieve trajectory computed by the planner
-		moveit_msgs::msg::RobotTrajectory trajectory = my_plan.trajectory;
+		moveit_msgs::msg::RobotTrajectory trajectory = my_plan.trajectory_;
 		// Visualize the trajectory
 		RCLCPP_INFO(LOGGER, "Visualizing the trajectory");
 

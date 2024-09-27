@@ -1,5 +1,5 @@
 planning_pipelines: ["stomp", "pilz_industrial_motion_planner", "ompl"]
-default_planning_pipeline: stomp
+default_planning_pipeline: ompl
 
 stomp:
     planning_plugin: stomp_moveit/StompPlanner
