@@ -277,7 +277,7 @@ int main(int argc, char** argv) {
     RCLCPP_INFO(LOGGER, "Visualizing plan 2 (joint goal): result = %s", moveit::core::error_code_to_string(response).c_str());
 
 
-    visual_tools.publishTrajectoryPath(my_plan_2.trajectory_, my_plan_2.start_state);
+    visual_tools.publishTrajectoryPath(my_plan_2.trajectory_, my_plan_2.start_state_);
 	visual_tools.trigger();
 
     visual_tools.prompt("Press 'next' to move the robot");
