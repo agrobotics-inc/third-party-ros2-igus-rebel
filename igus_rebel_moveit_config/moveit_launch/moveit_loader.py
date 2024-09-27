@@ -40,35 +40,35 @@ def declare_arguments():
 
     mount_arg = DeclareLaunchArgument(
         name="mount",
-        default_value="mount_v2",
+        default_value="none",
         choices=["none", "mount_v1", "mount_v2"],
         description="Mount to attach to the last joint",
     )
 
     camera_arg = DeclareLaunchArgument(
         name="camera",
-        default_value="realsense",
+        default_value="none",
         choices=["realsense", "oakd", "none"],
         description="Which camera to attach to the mount",
     )
 
     end_effector_arg = DeclareLaunchArgument(
         name="end_effector",
-        default_value="soft_gripper",
+        default_value="none",
         choices=["toucher_v1", "soft_gripper", "none"],
         description="Which end_effector to attach to the mount",
     )
 
     hardware_protocol_arg = DeclareLaunchArgument(
         name="hardware_protocol",
-        default_value="simulation",
+        default_value="cri",
         choices=["mock_hardware", "cri", "simulation", "ignition"],
         description="Which hardware protocol or simulation environment should be used",
     )
 
     load_base_arg = DeclareLaunchArgument(
         name="load_base",
-        default_value="true",
+        default_value="false",
         description="Load the mobile robot model and tower",
         choices=["true", "false"],
     )
