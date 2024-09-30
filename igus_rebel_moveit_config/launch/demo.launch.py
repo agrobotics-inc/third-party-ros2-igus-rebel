@@ -25,7 +25,7 @@ def generate_launch_description():
         ]
     )
 
-    igus_rebel_moveit_config_launch = IncludeLaunchDescription(
+    igus_rebel_moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(moveit_launch_file),
         launch_arguments={"rviz_file": rviz_file}.items(),
     )
@@ -47,6 +47,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        igus_rebel_moveit_config_launch,
+        igus_rebel_moveit_launch,
         ignition_launch,
     ])

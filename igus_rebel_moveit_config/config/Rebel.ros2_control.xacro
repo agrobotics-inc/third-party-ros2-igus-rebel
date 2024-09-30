@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="Rebel_ros2_control">
+        <ros2_control name="Rebel_HW" type="system">
+            <hardware>
+                <!-- By default, set up controllers for simulation. This won't work on real hardware -->
+                <!--<plugin>mock_components/GenericSystem</plugin>-->
+                <plugin>igus_rebel_hw_controller/RebelController</plugin>
+            </hardware>
+            <joint name="joint1">
+                <command_interface name="velocity">
+                  <param name="min">${-pi/4}</param>
+                  <param name="max">${pi/4}</param>
+                </command_interface>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint2">
+                <command_interface name="velocity">
+                  <param name="min">${-pi/4}</param>
+                  <param name="max">${pi/4}</param>
+                </command_interface>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint3">
+                <command_interface name="velocity">
+                  <param name="min">${-pi/4}</param>
+                  <param name="max">${pi/4}</param>
+                </command_interface>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint4">
+                <command_interface name="velocity">
+                  <param name="min">${-pi/4}</param>
+                  <param name="max">${pi/4}</param>
+                </command_interface>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint5">
+                <command_interface name="velocity">
+                  <param name="min">${-pi/4}</param>
+                  <param name="max">${pi/4}</param>
+                </command_interface>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+            <joint name="joint6">
+                <command_interface name="velocity">
+                  <param name="min">${-pi/4}</param>
+                  <param name="max">${pi/4}</param>
+                </command_interface>
+                <state_interface name="position">
+                  <param name="initial_value">0.0</param>
+                </state_interface>
+                <state_interface name="velocity"/>
+            </joint>
+
+        </ros2_control>
+    </xacro:macro>
+</robot>

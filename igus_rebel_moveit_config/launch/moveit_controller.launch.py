@@ -28,10 +28,7 @@ def launch_setup(context, *args, **kwargs):
     else:
         use_sim_time = False
 
-    # if octomap is to be loaded, then ask for sensors3d yaml config
-    with_sensors_3d = LaunchConfiguration("load_octomap").perform(context) == "true"
-
-    movegroup_parameters = moveit_loader.load_moveit(with_sensors_3d)
+    movegroup_parameters = moveit_loader.load_moveit()
     movegroup_parameters.append({"use_sim_time": use_sim_time})
 
     move_group_node = Node(
@@ -101,7 +98,7 @@ def launch_setup(context, *args, **kwargs):
             moveit_loader.load_robot_description(),
             moveit_loader.load_robot_description_semantic(),
         ] +
-        moveit_loader.load_moveit(with_sensors3d=False),
+        moveit_loader.load_moveit(),
         condition=IfCondition(
             PythonExpression(
                 ["'", LaunchConfiguration("rviz_file"), "' != 'none' "]

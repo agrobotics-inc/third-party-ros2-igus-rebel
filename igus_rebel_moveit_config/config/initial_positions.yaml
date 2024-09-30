@@ -1,4 +1,4 @@
-# Default initial positions for rebel_arm's ros2_control simulation system
+# Default initial positions for Rebel's ros2_control fake system
 
 initial_positions:
   joint1: 0
