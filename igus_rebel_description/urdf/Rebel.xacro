@@ -4,7 +4,7 @@
 <xacro:include filename="$(find igus_rebel_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find igus_rebel_description)/urdf/Rebel.trans" />
 <xacro:include filename="$(find igus_rebel_description)/urdf/Rebel.gazebo" />
-<link name="base_link">
+<link name="link_base">
   <inertial>
     <origin xyz="0.0002483693748801606 -0.0012903342275887133 0.03950362292761386" rpy="0 0 0"/>
     <mass value="0.7547320695071305"/>
@@ -153,7 +153,7 @@
 
 <joint name="joint1" type="revolute">
   <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
-  <parent link="base_link"/>
+  <parent link="link_base"/>
   <child link="link_1_1"/>
   <axis xyz="0.0 0.0 1.0"/>
   <limit upper="3.124139" lower="-3.124139" effort="100" velocity="100"/>
