@@ -1,0 +1,202 @@
+<?xml version="1.0" ?>
+<robot name="Rebel" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find igus_rebel_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find igus_rebel_description)/urdf/Rebel.trans" />
+<xacro:include filename="$(find igus_rebel_description)/urdf/Rebel.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.0002483693748801606 -0.0012903342275887133 0.03950362292761386" rpy="0 0 0"/>
+    <mass value="0.7547320695071305"/>
+    <inertia ixx="0.002353" iyy="0.002306" izz="0.00268" ixy="-4e-06" iyz="-4.2e-05" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_1_1">
+  <inertial>
+    <origin xyz="0.015841634083582877 8.548871717575606e-05 0.09950994505388894" rpy="0 0 0"/>
+    <mass value="0.7410013832861224"/>
+    <inertia ixx="0.003049" iyy="0.003054" izz="0.001309" ixy="-0.0" iyz="-0.0" ixz="-0.000367"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.1" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_2_1">
+  <inertial>
+    <origin xyz="0.022717322968401503 0.024555543995767325 0.13100450155666166" rpy="0 0 0"/>
+    <mass value="1.2586151274534216"/>
+    <inertia ixx="0.012219" iyy="0.012106" izz="0.003259" ixy="-3.3e-05" iyz="0.00031" ixz="-0.002582"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0237 -0.0 -0.2522" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0237 -0.0 -0.2522" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_3_1">
+  <inertial>
+    <origin xyz="0.0031588189993625483 4.9267294486156036e-05 0.06140690615001532" rpy="0 0 0"/>
+    <mass value="0.6361767574101594"/>
+    <inertia ixx="0.002484" iyy="0.002505" izz="0.001101" ixy="-1e-06" iyz="-1e-06" ixz="-0.00055"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0237 0.0 -0.493719" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0237 0.0 -0.493719" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_4_1">
+  <inertial>
+    <origin xyz="0.00469109379083606 2.2633699265782256e-05 0.08247979847797005" rpy="0 0 0"/>
+    <mass value="0.48493037527848076"/>
+    <inertia ixx="0.002093" iyy="0.002155" izz="0.00072" ixy="0.0" iyz="3e-06" ixz="-0.000143"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 1e-06 -0.645919" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 1e-06 -0.645919" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_5_1">
+  <inertial>
+    <origin xyz="0.016789997437452853 0.00023442206542370652 0.05163272364099669" rpy="0 0 0"/>
+    <mass value="0.2755543635330805"/>
+    <inertia ixx="0.000682" iyy="0.000774" izz="0.000359" ixy="-0.0" iyz="-0.0" ixz="-0.000219"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.033 3e-06 -0.793719" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.033 3e-06 -0.793719" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link_eef_1">
+  <inertial>
+    <origin xyz="-1.749470192662973e-13 -0.00029348300701733667 -0.0007690227381885739" rpy="0 0 0"/>
+    <mass value="0.010643536317449404"/>
+    <inertia ixx="2e-06" iyy="2e-06" izz="5e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 -0.000479 -0.921019" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_eef_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 -0.000479 -0.921019" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find igus_rebel_description)/meshes/link_eef_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="joint1" type="revolute">
+  <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link_1_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="3.124139" lower="-3.124139" effort="100" velocity="100"/>
+</joint>
+
+<joint name="joint2" type="revolute">
+  <origin xyz="-0.0237 0.0 0.1522" rpy="0 0 0"/>
+  <parent link="link_1_1"/>
+  <child link="link_2_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="2.443461" lower="-1.396263" effort="100" velocity="100"/>
+</joint>
+
+<joint name="joint3" type="revolute">
+  <origin xyz="0.0 -0.0 0.241519" rpy="0 0 0"/>
+  <parent link="link_2_1"/>
+  <child link="link_3_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="2.443461" lower="-1.396263" effort="100" velocity="100"/>
+</joint>
+
+<joint name="joint4" type="revolute">
+  <origin xyz="0.0237 -1e-06 0.1522" rpy="0 0 0"/>
+  <parent link="link_3_1"/>
+  <child link="link_4_1"/>
+  <axis xyz="0.0 9e-06 -1.0"/>
+  <limit upper="3.124139" lower="-3.124139" effort="100" velocity="100"/>
+</joint>
+
+<joint name="joint5" type="revolute">
+  <origin xyz="-0.033 -2e-06 0.1478" rpy="0 0 0"/>
+  <parent link="link_4_1"/>
+  <child link="link_5_1"/>
+  <axis xyz="-1.0 -0.0 -0.0"/>
+  <limit upper="1.658063" lower="-1.658063" effort="100" velocity="100"/>
+</joint>
+
+<joint name="joint6" type="revolute">
+  <origin xyz="0.033 0.000482 0.1273" rpy="0 0 0"/>
+  <parent link="link_5_1"/>
+  <child link="link_eef_1"/>
+  <axis xyz="-0.0 -1e-05 1.0"/>
+  <limit upper="3.124139" lower="-3.124139" effort="100" velocity="100"/>
+</joint>
+
+</robot>
