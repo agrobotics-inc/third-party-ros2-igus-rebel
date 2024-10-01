@@ -130,7 +130,7 @@
   </collision>
 </link>
 
-<link name="link_eef_1">
+<link name="link_eef">
   <inertial>
     <origin xyz="-1.749470192662973e-13 -0.00029348300701733667 -0.0007690227381885739" rpy="0 0 0"/>
     <mass value="0.010643536317449404"/>
@@ -194,7 +194,7 @@
 <joint name="joint6" type="revolute">
   <origin xyz="0.033 0.000482 0.1273" rpy="0 0 0"/>
   <parent link="link_5_1"/>
-  <child link="link_eef_1"/>
+  <child link="link_eef"/>
   <axis xyz="-0.0 0.0 1.0"/>
   <limit upper="3.124139" lower="-3.124139" effort="100" velocity="100"/>
 </joint>
