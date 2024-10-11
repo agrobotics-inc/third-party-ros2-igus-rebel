@@ -561,19 +561,19 @@ hardware_interface::return_type RebelController::write(const rclcpp::Time & /*ti
 	if (std::none_of(cmd_velocity_.begin(), cmd_velocity_.end(), [](double d) { return !std::isfinite(d); })) {
 		// take command velocities and place them in the jog vector
 		// print the set pos and set vel vectors in the console
-		if (detect_change(cmd_velocity_, cmd_last_velocity_)) {
-			std::string output = "";
-			for (unsigned int i = 0; i < n_joints; i++) {
-				output += std::to_string(cmd_velocity_[i]) + " ";
-			}
-			RCLCPP_INFO(logger_, "cmd_velocity_: %s", output.c_str());
-			output = "";
-			for (unsigned int i = 0; i < n_joints; i++) {
-				// Use the velocities from the command vector and convert them to the right unit
-				// conversion from [rad/s] to jogs [%max/s]
-				jogs_[i] = cmd_velocity_[i] * rads_to_jogs_ratio;
-				output += std::to_string(jogs_[i]) + " ";
-			}
+		// if (detect_change(cmd_velocity_, cmd_last_velocity_)) {
+		// 	std::string output = "";
+		// 	for (unsigned int i = 0; i < n_joints; i++) {
+		// 		output += std::to_string(cmd_velocity_[i]) + " ";
+		// 	}
+		// 	RCLCPP_INFO(logger_, "cmd_velocity_: %s", output.c_str());
+		// 	output = "";
+		// 	for (unsigned int i = 0; i < n_joints; i++) {
+		// 		// Use the velocities from the command vector and convert them to the right unit
+		// 		// conversion from [rad/s] to jogs [%max/s]
+		// 		jogs_[i] = cmd_velocity_[i] * rads_to_jogs_ratio;
+		// 		output += std::to_string(jogs_[i]) + " ";
+		// 	}
 
 			// RCLCPP_INFO(logger_, "Moved with velocity %s", output.c_str());
 			cmd_last_velocity_ = cmd_velocity_;
