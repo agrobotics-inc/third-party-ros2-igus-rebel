@@ -51,13 +51,13 @@ hardware_interface::CallbackReturn SimulationController::on_init(const hardware_
 	}
 
 	// print command interfaces names
-	for (const hardware_interface::InterfaceInfo &cmd_interface : info.joints.at(0).command_interfaces) {
-		RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "Command interface found: %s", cmd_interface.name.c_str());
-	}
+	// for (const hardware_interface::InterfaceInfo &cmd_interface : info.joints.at(0).command_interfaces) {
+	// 	RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "Command interface found: %s", cmd_interface.name.c_str());
+	// }
 	// print state interfaces names
-	for (const hardware_interface::InterfaceInfo &state_interface : info.joints.at(0).state_interfaces) {
-		RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "State interface found: %s", state_interface.name.c_str());
-	}
+	// for (const hardware_interface::InterfaceInfo &state_interface : info.joints.at(0).state_interfaces) {
+	// 	RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "State interface found: %s", state_interface.name.c_str());
+	// }
 
 	// initialize the vectors with NaN values
 	for (unsigned int i = 0; i < n_joints; i++) {
@@ -222,19 +222,19 @@ hardware_interface::return_type SimulationController::write(const rclcpp::Time &
 	// Velocity command
 	if (std::none_of(cmd_velocity_.begin(), cmd_velocity_.end(), [](double d) { return !std::isfinite(d); })) {
 		if (detect_change(cmd_velocity_, cmd_last_velocity_)) {
-			output = "";
-			for (unsigned int i = 0; i < n_joints; i++) {
-				output += std::to_string(cmd_velocity_[i]) + " ";
-			}
-			RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "cmd_velocity_: %s", output.c_str());
+			// output = "";
+			// for (unsigned int i = 0; i < n_joints; i++) {
+			// 	output += std::to_string(cmd_velocity_[i]) + " ";
+			// }
+			//RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "cmd_velocity_: %s", output.c_str());
 
 			// Use the velocities from the command vector and convert them to the right unit
-			output = "";
-			for (unsigned int i = 0; i < n_joints; i++) {
-				// conversion from [rad/s] to jogs [%max/s]
-				jogs_[i] = cmd_velocity_[i] * rads_to_jogs_ratio;
-				output += std::to_string(jogs_[i]) + " ";
-			}
+			// output = "";
+			// for (unsigned int i = 0; i < n_joints; i++) {
+			// 	// conversion from [rad/s] to jogs [%max/s]
+			// 	jogs_[i] = cmd_velocity_[i] * rads_to_jogs_ratio;
+			// 	output += std::to_string(jogs_[i]) + " ";
+			// }
 
 			// RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "Moved with velocity %s", output.c_str());
 			cmd_last_velocity_ = cmd_velocity_;
@@ -248,21 +248,21 @@ hardware_interface::return_type SimulationController::write(const rclcpp::Time &
 
 		if (detect_change(cmd_position_, cmd_last_position_)) { // do not repeat command if it is the same as the last one
 
-			for (unsigned int i = 0; i < n_joints; i++) {
-				// conversion from [rad/s] to jogs [%max/s]
-				output += std::to_string(cmd_position_[i]) + " ";
-			}
-			RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "cmd_position_: %s", output.c_str());
+			// for (unsigned int i = 0; i < n_joints; i++) {
+			// 	// conversion from [rad/s] to jogs [%max/s]
+			// 	output += std::to_string(cmd_position_[i]) + " ";
+			// }
+			//RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "cmd_position_: %s", output.c_str());
 
-			std::ostringstream msg;
+			// std::ostringstream msg;
 			// command move function
 			// Limit the precision to one digit behind the decimal point
-			msg << "Move Joint " << std::fixed << std::setprecision(1);
+			// msg << "Move Joint " << std::fixed << std::setprecision(1);
 
 			// Add the joint goals as degrees, one value per joint
-			for (unsigned int i = 0; i < cmd_position_.size(); i++) {
-				msg << ((cmd_position_[i] + pos_offset_[i]) * 180.0 / M_PI) << " ";
-			}
+			// for (unsigned int i = 0; i < cmd_position_.size(); i++) {
+			// 	msg << ((cmd_position_[i] + pos_offset_[i]) * 180.0 / M_PI) << " ";
+			// }
 
 			// send command here
 			// RCLCPP_INFO(rclcpp::get_logger("hw_controller::simulation_controller"), "Move position msg: %s", msg.str().c_str());
